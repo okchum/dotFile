@@ -1,2 +1,7 @@
 # dotFile
-Personal Configuration
+
+This repository is my personal configuration
+
+# License
+
+MIT License
