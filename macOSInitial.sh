@@ -36,7 +36,7 @@ Check_Brew_Cmd="brew doctor"
 Execute_Command "\${Check_Brew_Msg}" "\${Check_Brew_Cmd}"
 
 # Installing apps via Brew
-Brew_Install_Apps_Msg="wget openssl xz pcre gdbm zsh aria2 go node automake autoconf docker docker-compose mobile-shell homebrew/php/composer homebrew/php/php-cs-fixer gpg"
+Brew_Install_Apps_Msg="wget openssl xz pcre gdbm zsh aria2 go node automake autoconf docker docker-compose mobile-shell homebrew/php/composer homebrew/php/php-cs-fixer gpg tldr"
 Brew_Install_Apps_Cmd="Installing $INSTALLFROMBREW via Brew"
 Execute_Command "\${Brew_Install_Apps_Msg}" "brew install \${Brew_Install_Apps_Cmd}"
 
@@ -55,11 +55,12 @@ Install_HomebrewCask_Msg="Installing BrewCask via https://caskroom.github.io"
 Install_HomebrewCask_Cmd="brew tap caskroom/cask"
 Execute_Command "\${Install_HomebrewCask_Msg}" "\${Install_HomebrewCask_Cmd}"
 
-# Install Apps via BrewCask
+# Installing Apps via BrewCask
 HomebrewCask_List=(
     '1password' 'enpass' 'alfred' 'dropbox' 'google-chrome' 'vivaldi' \
-    'iterm2' 'sublime-text' 'virtualbox' \
+    'iterm2' 'sublime-text' 'virtualbox' 'mplayerx' 'iina'\
 	'aria2gui' 'robomongo' 'skype' 'atom' 'balsamiq-mockups' 'charles' 'coderunner' \
+
 	'dash' 'squirrel' 'bettertouchtool' 'cheatsheet' \
 	'jetbrains-toolbox' 'pycharm' 'phpstorm' 'rubymine' 'appcode' 'datagrip' 'intellij-idea' 'webstorm' \
 	'eudic' 'default-folder-x' 'keyboard-maestro' 'karabiner' 'seil' 'vagrant' 'sourcetree' 'tower' \
@@ -68,8 +69,8 @@ HomebrewCask_List=(
 	 'xee'
 	)
 
-for item in ${HomebrewCask_List}[@]; do 
-    HomeBrew_Install_Apps_Cmd="brew cask install ${item}"
+for Item in ${HomebrewCask_List}[@]; do 
+    HomeBrew_Install_Apps_Cmd="brew cask install ${Item}"
 	Execute_Command "\${HomeBrew_Install_Apps_Cmd}" "\${HomeBrew_Install_Apps_Cmd}"
 done 
 
