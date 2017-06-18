@@ -76,7 +76,7 @@ done
 
 # Linking SSH config
 cd ~ && ln -s ~/Dropbox/Live/ssh/ .ssh
-
+ln -s ~/Dropbox/Workspaces ~/
 # Development enviroment
 # vagrant box add laravel/homestead
 # vagrant box add laravel/homestead /path/to/virtualbox.box 
