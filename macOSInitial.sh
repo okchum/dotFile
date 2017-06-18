@@ -14,6 +14,15 @@ Disable_TM_Local_Msg="Disabling TimeMachine local backup"
 Disable_TM_Local_Cmd='sudo tmutil disablelocal'
 Execute_Command "\${Disable_TM_Local_Msg}" "\${Disable_TM_Local_Cmd}"
 
+# Switching ZSH shell
+Switch_Shell_Msg="Switching zsh shell"
+Switch_Shell_Cmd="chsh -s /bin/zsh"
+Execute_Command "\${Switch_Shell_Msg}" "\${Switch_Shell_Cmd}"
+
+# Installing oh-my-zsh
+Install_OHMYZSH_Msg="Installing oh-my-zsh via https://github.com/robbyrussell/oh-my-zsh"
+Install_OHMYZSH_Cmd='sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
+Execute_Command "\${Install_OHMYZSH_Msg}" "\${Install_OHMYZSH_Cmd}"
 
 # Installing PIP via easy_install
 Install_PIP_Msg="Installing pip"
@@ -40,15 +49,6 @@ Brew_Install_Apps_Msg="wget openssl xz pcre gdbm zsh aria2 go node automake auto
 Brew_Install_Apps_Cmd="Installing $INSTALLFROMBREW via Brew"
 Execute_Command "\${Brew_Install_Apps_Msg}" "brew install \${Brew_Install_Apps_Cmd}"
 
-# Switching ZSH shell
-Switch_Shell_Msg="Switching zsh shell"
-Switch_Shell_Cmd="chsh -s /bin/zsh"
-Execute_Command "\${Switch_Shell_Msg}" "\${Switch_Shell_Cmd}"
-
-# Installing oh-my-zsh
-Install_OHMYZSH_Msg="Installing oh-my-zsh via https://github.com/robbyrussell/oh-my-zsh"
-Install_OHMYZSH_Cmd='sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
-Execute_Command "\${Install_OHMYZSH_Msg}" "\${Install_OHMYZSH_Cmd}"
 
 # Installing BrewCask
 Install_HomebrewCask_Msg="Installing BrewCask via https://caskroom.github.io"
@@ -63,13 +63,13 @@ HomebrewCask_List=(
 
 	'dash' 'squirrel' 'bettertouchtool' 'cheatsheet' \
 	'jetbrains-toolbox' 'pycharm' 'phpstorm' 'rubymine' 'appcode' 'datagrip' 'intellij-idea' 'webstorm' \
-	'eudic' 'default-folder-x' 'keyboard-maestro' 'karabiner' 'seil' 'vagrant' 'sourcetree' 'tower' \
+	'eudic' 'default-folder-x' 'keyboard-maestro' 'karabiner' 'vagrant' 'sourcetree' 'tower' \
 	'shadowsocksx-ng' 'surge' 'sequel-pro' 'bartender' 'teamviewer' \
 	# Trial
 	 'xee'
 	)
 
-for Item in ${HomebrewCask_List}[@]; do 
+for Item in ${HomebrewCask_List[@]}; do
     HomeBrew_Install_Apps_Cmd="brew cask install ${Item}"
 	Execute_Command "\${HomeBrew_Install_Apps_Cmd}" "\${HomeBrew_Install_Apps_Cmd}"
 done 
