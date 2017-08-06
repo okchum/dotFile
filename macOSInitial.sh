@@ -57,16 +57,24 @@ Execute_Command "\${Install_HomebrewCask_Msg}" "\${Install_HomebrewCask_Cmd}"
 
 # Installing Apps via BrewCask
 HomebrewCask_List=(
-    '1password' 'enpass' 'alfred' 'dropbox' 'google-chrome' 'vivaldi' \
-    'iterm2' 'sublime-text' 'virtualbox' 'mplayerx' 'iina'\
-	'aria2gui' 'robomongo' 'skype' 'atom' 'balsamiq-mockups' 'charles' 'coderunner' \
+    '1password' 'enpass' 'alfred' 'dropbox' 'google-chrome' 'vivaldi' 'eudic' \
+    'iterm2' 'sublime-text' 'atom' 'virtualbox' 'aria2gui' 'skype' \
 
-	'dash' 'squirrel' 'bettertouchtool' 'cheatsheet' \
-	'jetbrains-toolbox' 'pycharm' 'phpstorm' 'rubymine' 'appcode' 'datagrip' 'intellij-idea' 'webstorm' \
-	'eudic' 'default-folder-x' 'keyboard-maestro' 'karabiner' 'vagrant' 'sourcetree' 'tower' \
-	'shadowsocksx-ng' 'surge' 'sequel-pro' 'bartender' 'teamviewer' \
-	# Trial
-	 'xee'
+    ## Entertaiment
+    'iina' 'plex-media-player' 'kodi'\
+
+    ## Utilities
+	'squirrel' 'bettertouchtool' 'cheatsheet' 'default-folder-x' 'keyboard-maestro' 'karabiner' \
+    'shadowsocksx-ng' 'surge' 'bartender' 'teamviewer' \
+ 
+    ## Jetbrains
+	'jetbrains-toolbox' 'pycharm' 'phpstorm' 'rubymine' 'appcode' 'intellij-idea' 'webstorm' 'datagrip'\
+
+    ## Develop Tools
+    'sourcetree' 'tower' 'coderunner' 'vagrant' 'robomongo' 'charles' 'wireshark' 'dash' 'sequel-pro'\
+
+    ## Design Tools
+    'balsamiq-mockups' 
 	)
 
 for Item in ${HomebrewCask_List[@]}; do
