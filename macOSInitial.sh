@@ -45,7 +45,7 @@ Check_Brew_Cmd="brew doctor"
 Execute_Command "\${Check_Brew_Msg}" "\${Check_Brew_Cmd}"
 
 # Installing apps via Brew
-Brew_Install_Apps_Msg="wget openssl xz pcre gdbm zsh aria2 go node automake autoconf docker docker-compose mobile-shell homebrew/php/composer homebrew/php/php-cs-fixer gpg tldr"
+Brew_Install_Apps_Msg="wget openssl xz pcre gdbm zsh aria2 go node automake autoconf docker docker-compose mobile-shell homebrew/php/composer homebrew/php/php-cs-fixer gpg tldr caskroom/cask/java apktool dex2jar"
 Brew_Install_Apps_Cmd="Installing $INSTALLFROMBREW via Brew"
 Execute_Command "\${Brew_Install_Apps_Msg}" "brew install \${Brew_Install_Apps_Cmd}"
 
@@ -69,6 +69,9 @@ HomebrewCask_List=(
  
     ## Jetbrains
 	'jetbrains-toolbox' 'pycharm' 'phpstorm' 'rubymine' 'appcode' 'intellij-idea' 'webstorm' 'datagrip'\
+
+    ## Android
+    'jd-gui'
 
     ## Develop Tools
     'sourcetree' 'tower' 'coderunner' 'vagrant' 'robomongo' 'charles' 'wireshark' 'dash' 'sequel-pro'\
