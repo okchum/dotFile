@@ -58,7 +58,7 @@ Execute_Command "\${Install_HomebrewCask_Msg}" "\${Install_HomebrewCask_Cmd}"
 # Installing Apps via BrewCask
 HomebrewCask_List=(
     '1password' 'enpass' 'alfred' 'dropbox' 'google-chrome' 'vivaldi' 'eudic' \
-    'iterm2' 'sublime-text' 'atom' 'virtualbox' 'aria2gui' 'skype' \
+    'iterm2' 'sublime-text' 'atom' 'aria2gui' 'skype' 'snipaste'\
 
     ## Entertaiment
     'iina' 'plex-media-player' 'kodi'\
