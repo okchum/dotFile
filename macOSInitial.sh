@@ -66,7 +66,7 @@ HomebrewCask_List=(
     ## Utilities
 	'squirrel' 'bettertouchtool' 'cheatsheet' 'default-folder-x' 'keyboard-maestro' 'karabiner' \
     'shadowsocksx-ng' 'surge' 'bartender' 'teamviewer' \
- 
+
     ## Jetbrains
 	'jetbrains-toolbox' 'pycharm' 'phpstorm' 'rubymine' 'appcode' 'intellij-idea' 'webstorm' 'datagrip'\
 
@@ -75,6 +75,8 @@ HomebrewCask_List=(
 
     ## Develop Tools
     'sourcetree' 'tower' 'coderunner' 'vagrant' 'robomongo' 'charles' 'wireshark' 'dash' 'sequel-pro'\
+
+    # 'shuttle'
 
     ## Design Tools
     'balsamiq-mockups' 
