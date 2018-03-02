@@ -58,14 +58,16 @@ Execute_Command "\${Install_HomebrewCask_Msg}" "\${Install_HomebrewCask_Cmd}"
 # Installing Apps via BrewCask
 HomebrewCask_List=(
     '1password' 'enpass' 'alfred' 'dropbox' 'google-chrome' 'vivaldi' 'eudic' \
-    'iterm2' 'sublime-text' 'atom' 'aria2gui' 'skype' 'snipaste'\
+    'iterm2' 'sublime-text' 'atom' 'aria2gui' 'skype' 'snipaste' 'istat-menus' \
+
+    ## Trial 'ghosttile'\
 
     ## Entertaiment
     'iina' 'plex-media-player' 'kodi'\
 
     ## Utilities
 	'squirrel' 'bettertouchtool' 'cheatsheet' 'default-folder-x' 'keyboard-maestro' 'karabiner' \
-    'shadowsocksx-ng' 'surge' 'bartender' 'teamviewer' \
+    'shadowsocksx-ng' 'surge' 'bartender' 'teamviewer' 'mysqlworkbench' \
 
     ## Jetbrains
 	'jetbrains-toolbox' 'pycharm' 'phpstorm' 'rubymine' 'appcode' 'intellij-idea' 'webstorm' 'datagrip'\
