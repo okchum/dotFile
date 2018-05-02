@@ -9,11 +9,6 @@ Execute_Command()
     eval ${COMMAND}
 }
 
-# Disabling TimeMachine local backup
-Disable_TM_Local_Msg="Disabling TimeMachine local backup"
-Disable_TM_Local_Cmd='sudo tmutil disablelocal'
-Execute_Command "\${Disable_TM_Local_Msg}" "\${Disable_TM_Local_Cmd}"
-
 # Switching ZSH shell
 Switch_Shell_Msg="Switching zsh shell"
 Switch_Shell_Cmd="chsh -s /bin/zsh"
@@ -45,7 +40,7 @@ Check_Brew_Cmd="brew doctor"
 Execute_Command "\${Check_Brew_Msg}" "\${Check_Brew_Cmd}"
 
 # Installing apps via Brew
-Brew_Install_Apps_Msg="wget openssl xz pcre gdbm zsh aria2 go node automake autoconf docker docker-compose mobile-shell homebrew/php/composer homebrew/php/php-cs-fixer gpg tldr caskroom/cask/java apktool dex2jar"
+Brew_Install_Apps_Msg="wget openssl xz pcre gdbm zsh aria2 go node automake autoconf docker-compose mobile-shell composer php-cs-fixer gpg tldr caskroom/cask/java apktool dex2jar"
 Brew_Install_Apps_Cmd="Installing $INSTALLFROMBREW via Brew"
 Execute_Command "\${Brew_Install_Apps_Msg}" "brew install \${Brew_Install_Apps_Cmd}"
 
@@ -57,7 +52,7 @@ Execute_Command "\${Install_HomebrewCask_Msg}" "\${Install_HomebrewCask_Cmd}"
 
 # Installing Apps via BrewCask
 HomebrewCask_List=(
-    '1password' 'enpass' 'alfred' 'dropbox' 'google-chrome' 'vivaldi' 'eudic' \
+    '1password' 'enpass' 'alfred' 'dropbox' 'google-chrome' 'vivaldi' 'eudic' 'musixmatch' 'spotify' 'torbrowser' 'visual-studio-code'\
     'iterm2' 'sublime-text' 'atom' 'aria2gui' 'skype' 'snipaste' 'istat-menus' \
 
     ## Trial 'ghosttile'\
@@ -76,7 +71,7 @@ HomebrewCask_List=(
     'jd-gui'
 
     ## Develop Tools
-    'sourcetree' 'tower' 'coderunner' 'vagrant' 'robomongo' 'charles' 'wireshark' 'dash' 'sequel-pro'\
+    'sourcetree' 'tower' 'coderunner' 'robo-3t' 'vagrant' 'charles' 'wireshark' 'dash' 'sequel-pro'\
 
     # 'shuttle'
 
@@ -89,9 +84,15 @@ for Item in ${HomebrewCask_List[@]}; do
 	Execute_Command "\${HomeBrew_Install_Apps_Cmd}" "\${HomeBrew_Install_Apps_Cmd}"
 done 
 
+cd ~
+sudo rm -rf Documents/
+ln -s /Volumes/Data/Documents/ ~/Documents
+sudo rm -rf Downloads/
+ln -s /Volumes/Data/Downloads/ ~/Downloads
+
 # Linking SSH config
-cd ~ && ln -s ~/Dropbox/Live/ssh/ .ssh
-ln -s ~/Dropbox/Workspaces ~/
+ln -s /Volumes/Data/Dropbox/Live/ssh .ssh
+ln -s /Volumes/Data/Dropbox/Workspaces ~/
 # Development enviroment
 # vagrant box add laravel/homestead
 # vagrant box add laravel/homestead /path/to/virtualbox.box 
