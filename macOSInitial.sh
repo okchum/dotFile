@@ -1,5 +1,14 @@
 #!/bin/bash
 
+cd ~
+sudo rm -rf ~/Documents/ ~/Downloads/
+ln -s /Volumes/Data/Documents/ ~/Documents
+ln -s /Volumes/Data/Downloads/ ~/Downloads
+
+# Linking SSH config
+ln -s /Volumes/Data/Dropbox/Live/ssh ~/.ssh
+ln -s /Volumes/Data/Dropbox/Workspaces ~/Workspaces
+
 Execute_Command()
 {
     eval MESSAGE="$1"
@@ -50,12 +59,18 @@ Install_HomebrewCask_Msg="Installing BrewCask via https://caskroom.github.io"
 Install_HomebrewCask_Cmd="brew tap caskroom/cask"
 Execute_Command "\${Install_HomebrewCask_Msg}" "\${Install_HomebrewCask_Cmd}"
 
+# Installing Homebrew-cask-versions
+Install_HomebrewCask_Versions_Msg="Installing Homebrew-cask-versions via https://github.com/Homebrew/homebrew-cask-versions"
+Install_HomebrewCask_Versions_Cmd="brew tap homebrew/cask-versions"
+Execute_Command "\${Install_HomebrewCask_Versions_Msg}" "\${Install_HomebrewCask_Versions_Cmd}"
+
 # Installing Apps via BrewCask
 HomebrewCask_List=(
-    '1password' 'enpass' 'alfred' 'dropbox' 'google-chrome' 'vivaldi' 'eudic' 'musixmatch' 'spotify' 'torbrowser' 'visual-studio-code'\
+    '1password6' 'enpass' 'alfred' 'dropbox' 'google-chrome' 'vivaldi' 'eudic' 'spotify' 'torbrowser' 'visual-studio-code'\
     'iterm2' 'sublime-text' 'atom' 'aria2gui' 'skype' 'snipaste' 'istat-menus' \
 
-    ## Trial 'ghosttile'\
+    ## Trial 
+    'ghosttile'\
 
     ## Entertaiment
     'iina' 'plex-media-player' 'kodi'\
@@ -84,17 +99,8 @@ for Item in ${HomebrewCask_List[@]}; do
 	Execute_Command "\${HomeBrew_Install_Apps_Cmd}" "\${HomeBrew_Install_Apps_Cmd}"
 done 
 
-cd ~
-sudo rm -rf Documents/
-ln -s /Volumes/Data/Documents/ ~/Documents
-sudo rm -rf Downloads/
-ln -s /Volumes/Data/Downloads/ ~/Downloads
 
-# Linking SSH config
-ln -s /Volumes/Data/Dropbox/Live/ssh .ssh
-ln -s /Volumes/Data/Dropbox/Workspaces ~/
 # Development enviroment
-# vagrant box add laravel/homestead
 # vagrant box add laravel/homestead /path/to/virtualbox.box 
 # composer global require "laravel/homestead"
 
