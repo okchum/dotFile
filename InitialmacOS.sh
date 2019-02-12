@@ -7,6 +7,7 @@ ln -s /Volumes/Data/Downloads/ ~/Downloads
 
 # Linking SSH config
 ln -s /Volumes/Data/Dropbox/Live/ssh ~/.ssh
+chmod -R 500 ~/.ssh
 ln -s /Volumes/Data/Dropbox/Workspaces ~/Workspaces
 
 Execute_Command()
@@ -66,29 +67,34 @@ Execute_Command "\${Install_HomebrewCask_Versions_Msg}" "\${Install_HomebrewCask
 
 # Installing Apps via BrewCask
 HomebrewCask_List=(
-    '1password6' 'enpass' 'alfred' 'dropbox' 'google-chrome' 'vivaldi' 'eudic' 'spotify' 'torbrowser' 'visual-studio-code'\
-    'iterm2' 'sublime-text' 'atom' 'aria2gui' 'skype' 'snipaste' 'istat-menus' \
+    ## Password management
+    '1password6' 'enpass' \
+
+    ## Browsers
+    'google-chrome' 'vivaldi' 'firefox' 'tor-browser' \
+
+    ## Entertaiment
+    'iina' 'plex-media-player' 'kodi' 'spotify' \
+
+    ## Dev
+    'iterm2' 'sourcetree' 'tower' 'coderunner' 'robo-3t' 'vagrant' 'charles' 'wireshark' 'dash' 'sequel-pro'\
+
+    ## Editors
+    'visual-studio-code' 'sublime-text'\
+
+    ## Jetbrains
+    'jetbrains-toolbox' 'pycharm' 'phpstorm' 'rubymine' 'appcode' 'intellij-idea' 'datagrip'\
+
+
+    'aria2gui' 'skype' 'snipaste' 'istat-menus' \
 
     ## Trial 
     'ghosttile'\
 
-    ## Entertaiment
-    'iina' 'plex-media-player' 'kodi'\
 
     ## Utilities
-	'squirrel' 'bettertouchtool' 'cheatsheet' 'default-folder-x' 'keyboard-maestro' 'karabiner' \
+	'alfred' 'dropbox'  'eudic' 'squirrel' 'bettertouchtool' 'cheatsheet' 'default-folder-x' 'keyboard-maestro' \
     'shadowsocksx-ng' 'surge' 'bartender' 'teamviewer' 'mysqlworkbench' \
-
-    ## Jetbrains
-	'jetbrains-toolbox' 'pycharm' 'phpstorm' 'rubymine' 'appcode' 'intellij-idea' 'webstorm' 'datagrip'\
-
-    ## Android
-    'jd-gui'
-
-    ## Develop Tools
-    'sourcetree' 'tower' 'coderunner' 'robo-3t' 'vagrant' 'charles' 'wireshark' 'dash' 'sequel-pro'\
-
-    # 'shuttle'
 
     ## Design Tools
     'balsamiq-mockups' 
