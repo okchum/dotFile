@@ -1,110 +1,92 @@
 #!/bin/bash
 
+. ./functions.sh
+
 cd ~
-sudo rm -rf ~/Documents/ ~/Downloads/
-ln -s /Volumes/Data/Documents/ ~/Documents
-ln -s /Volumes/Data/Downloads/ ~/Downloads
+sudo rm -rf ~/Documents ~/Downloads
+ln -s /Volumes/Data/Documents ~/Documents
+ln -s /Volumes/Data/Downloads ~/Downloads
 
-# Linking SSH config
-ln -s /Volumes/Data/Dropbox/Live/ssh ~/.ssh
-chmod -R 500 ~/.ssh
-ln -s /Volumes/Data/Dropbox/Workspaces ~/Workspaces
-
-Execute_Command()
-{
-    eval MESSAGE="$1"
-    eval COMMAND="$2"
-    echo ${MESSAGE}
-    echo "Command: "${COMMAND}
-    eval ${COMMAND}
-}
 
 # Switching ZSH shell
-Switch_Shell_Msg="Switching zsh shell"
-Switch_Shell_Cmd="chsh -s /bin/zsh"
-Execute_Command "\${Switch_Shell_Msg}" "\${Switch_Shell_Cmd}"
+switch_shell_msg="Switching zsh shell"
+switch_shell_cmd="chsh -s /bin/zsh"
+execute_command "\${switch_shell_msg}" "\${switch_shell_cmd}"
 
 # Installing oh-my-zsh
-Install_OHMYZSH_Msg="Installing oh-my-zsh via https://github.com/robbyrussell/oh-my-zsh"
-Install_OHMYZSH_Cmd='sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
-Execute_Command "\${Install_OHMYZSH_Msg}" "\${Install_OHMYZSH_Cmd}"
+install_ohmyzsh_msg="Installing oh-my-zsh via https://github.com/robbyrussell/oh-my-zsh"
+install_ohmyzsh_cmd='sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
+execute_command "\${install_ohmyzsh_msg}" "\${install_ohmyzsh_cmd}"
 
 # Installing PIP via easy_install
-Install_PIP_Msg="Installing pip"
-Install_PIP_Cmd="sudo easy_install pip"
-Execute_Command "\${Install_PIP_Msg}" "\${Install_PIP_Cmd}"
+install_pip_msg="Installing pip"
+install_pip_cmd="sudo easy_install pip"
+execute_command "\${install_pip_msg}" "\${install_pip_cmd}"
 
 # Installing library via pip
-PIP_Install_Lib_Msg="installing mackup from pip"
-PIP_Install_Lib_Cmd="sudo pip install mackup"
-Execute_Command "\${PIP_Install_Lib_Msg}" "\${PIP_Install_Lib_Cmd}"
+pip_install_lib_msg="installing mackup from pip"
+pip_install_lib_cmd=cmd="sudo pip install mackup"
+execute_command "\${pip_install_lib_msg}" "\${pip_install_lib_cmd}"
 
 # Installing Brew via https://brew.sh
-Install_Brew_Msg="Installing brew from https://brew.sh"
-Install_Brew_Cmd='/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
-Execute_Command "\${Install_Brew_Msg}" "\${Install_Brew_Cmd}"
+install_brew_msg="Installing brew from https://brew.sh"
+install_brew_cmd='/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
+execute_command "\${install_brew_msg}" "\${install_brew_cmd}"
 
 # Check Brew
-Check_Brew_Msg="Testing Brew"
-Check_Brew_Cmd="brew doctor"
-Execute_Command "\${Check_Brew_Msg}" "\${Check_Brew_Cmd}"
+check_brew_msg="Testing Brew"
+check_brew_cmd="brew doctor"
+execute_command "\${check_brew_msg}" "\${check_brew_cmd}"
 
 # Installing apps via Brew
-Brew_Install_Apps_Msg="wget openssl xz pcre gdbm zsh aria2 go node automake autoconf docker-compose mobile-shell composer php-cs-fixer gpg tldr caskroom/cask/java apktool dex2jar"
-Brew_Install_Apps_Cmd="Installing $INSTALLFROMBREW via Brew"
-Execute_Command "\${Brew_Install_Apps_Msg}" "brew install \${Brew_Install_Apps_Cmd}"
+brew_install_apps_msg="wget openssl xz pcre gdbm zsh aria2 go node automake autoconf mobile-shell composer php-cs-fixer gpg tldr apktool dex2jar"
+brew_install_apps_cmd="Installing $INSTALLFROMBREW via Brew"
+execute_command "\${brew_install_apps_msg}" "brew install \${brew_install_apps_cmd}"
 
-
-# Installing BrewCask
-Install_HomebrewCask_Msg="Installing BrewCask via https://caskroom.github.io"
-Install_HomebrewCask_Cmd="brew tap caskroom/cask"
-Execute_Command "\${Install_HomebrewCask_Msg}" "\${Install_HomebrewCask_Cmd}"
-
-# Installing Homebrew-cask-versions
-Install_HomebrewCask_Versions_Msg="Installing Homebrew-cask-versions via https://github.com/Homebrew/homebrew-cask-versions"
-Install_HomebrewCask_Versions_Cmd="brew tap homebrew/cask-versions"
-Execute_Command "\${Install_HomebrewCask_Versions_Msg}" "\${Install_HomebrewCask_Versions_Cmd}"
 
 # Installing Apps via BrewCask
-HomebrewCask_List=(
+brew_cask_list=(
     ## Password management
-    '1password6' 'enpass' \
-
-    ## Browsers
-    'google-chrome' 'vivaldi' 'firefox' 'tor-browser' \
-
-    ## Entertaiment
-    'iina' 'plex-media-player' 'kodi' 'spotify' \
-
-    ## Dev
-    'iterm2' 'sourcetree' 'tower' 'coderunner' 'robo-3t' 'vagrant' 'charles' 'wireshark' 'dash' 'sequel-pro'\
-
-    ## Editors
-    'visual-studio-code' 'sublime-text'\
+    '1password6' 'enpass' 'lastpass' \
 
     ## Jetbrains
-    'jetbrains-toolbox' 'pycharm' 'phpstorm' 'rubymine' 'appcode' 'intellij-idea' 'datagrip'\
+    'jetbrains-toolbox' \
+
+    ## Editors
+    'sublime-text' 'visual-studio-code' \
+
+    ## Dev tools
+    'iterm2' 'fork' 'coderunner' 'robo-3t' 'charles' 'wireshark' 'dash' \
+
+    ## Browsers
+    'brave-browser' 'firefox' 'firefox-developer-edition' 'google-chrome' 'tor-browser' \
+
+    ## Utilities
+    'adguard' 'alfred' 'bartender' 'bettertouchtool' 'bob' 'cheatsheet' 'default-folder-x' 'dropbox' 'eudic' 'hammerspoon' 'keyboard-maestro8' \
+    'mysqlworkbench' 'shadowsocksx-ng' 'slack' 'squirrel' 'surge' 'teamviewer' \
+
+    ## Entertaiment
+    'iina' 'kodi' 'plex-media-player' 'spotify' \
 
 
     'aria2gui' 'skype' 'snipaste' 'istat-menus' \
 
     ## Trial 
-    'ghosttile'\
-
-
-    ## Utilities
-	'alfred' 'dropbox'  'eudic' 'squirrel' 'bettertouchtool' 'cheatsheet' 'default-folder-x' 'keyboard-maestro' \
-    'shadowsocksx-ng' 'surge' 'bartender' 'teamviewer' 'mysqlworkbench' \
+    'ghosttile'  \
 
     ## Design Tools
     'balsamiq-mockups' 
 	)
 
-for Item in ${HomebrewCask_List[@]}; do
-    HomeBrew_Install_Apps_Cmd="brew cask install ${Item}"
-	Execute_Command "\${HomeBrew_Install_Apps_Cmd}" "\${HomeBrew_Install_Apps_Cmd}"
+for item in ${brew_cask_list[@]}; do
+    brew_install_apps_cmd="brew cask install ${item}"
+	execute_command "\${brew_install_apps_cmd}" "\${brew_install_apps_cmd}"
 done 
 
+# Linking SSH config
+ln -s /Volumes/Data/Dropbox/Live/ssh ~/.ssh
+chmod -R 500 ~/.ssh
+ln -s /Volumes/Data/Dropbox/Workspaces ~/Workspaces
 
 # Development enviroment
 # vagrant box add laravel/homestead /path/to/virtualbox.box 

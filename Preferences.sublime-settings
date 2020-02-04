@@ -1,0 +1,19 @@
+{
+	"color_scheme": "Packages/User/Monokai (SublimePythonIDE).tmTheme",
+	"ignored_packages":
+	[
+		"Emmet",
+		"Flask Completions",
+		"Laravel 5 Artisan",
+		"Laravel 5 Snippets",
+		"Markdown Extended",
+		"PHP Completions Kit",
+		"PhpDoc",
+		"PhpNamespace",
+		"Pug",
+		"Python Completions",
+		"Vintage"
+	],
+	"open_files_in_new_window": false,
+
+}
