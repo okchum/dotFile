@@ -47,7 +47,7 @@ execute_command "\${brew_install_apps_msg}" "brew install \${brew_install_apps_c
 # Installing Apps via BrewCask
 brew_cask_list=(
     ## Password management
-    '1password6' 'enpass' 'lastpass' \
+    'enpass' 'authy' \
 
     ## Jetbrains
     'jetbrains-toolbox' \
@@ -59,11 +59,11 @@ brew_cask_list=(
     'iterm2' 'fork' 'coderunner' 'robo-3t' 'charles' 'wireshark' 'dash' \
 
     ## Browsers
-    'brave-browser' 'firefox' 'firefox-developer-edition' 'google-chrome' 'tor-browser' \
+    'brave-browser' 'firefox' 'homebrew/cask-versions/firefox-developer-edition' 'google-chrome' 'tor-browser' \
 
-    ## Utilities
-    'adguard' 'alfred' 'bartender' 'bettertouchtool' 'bob' 'cheatsheet' 'default-folder-x' 'dropbox' 'eudic' 'hammerspoon' 'keyboard-maestro8' \
-    'mysqlworkbench' 'shadowsocksx-ng' 'slack' 'squirrel' 'surge' 'teamviewer' \
+    ## Utilities    //  'keyboard-maestro8'
+    'adguard' 'alfred' 'bartender' 'bettertouchtool' 'bob' 'cheatsheet' 'default-folder-x' 'dropbox' 'eudic' 'hammerspoon' \
+    'mysqlworkbench' 'shadowsocksx-ng' 'slack' 'squirrel' 'surge' 'teamviewer' 'zoomus' 'spark' \
 
     ## Entertaiment
     'iina' 'kodi' 'plex-media-player' 'spotify' \
@@ -75,7 +75,7 @@ brew_cask_list=(
     'ghosttile'  \
 
     ## Design Tools
-    'balsamiq-mockups' 
+    'balsamiq-wireframes' 
 	)
 
 for item in ${brew_cask_list[@]}; do
@@ -84,9 +84,10 @@ for item in ${brew_cask_list[@]}; do
 done 
 
 # Linking SSH config
-ln -s /Volumes/Data/Dropbox/Live/ssh ~/.ssh
-chmod -R 500 ~/.ssh
-ln -s /Volumes/Data/Dropbox/Workspaces ~/Workspaces
+
+# ln -s /Volumes/Data/Dropbox/Live/ssh ~/.ssh
+# chmod -R 500 ~/.ssh
+# ln -s /Volumes/Data/Dropbox/Workspaces ~/Workspaces
 
 # Development enviroment
 # vagrant box add laravel/homestead /path/to/virtualbox.box 

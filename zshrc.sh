@@ -37,7 +37,9 @@ alias python.deactivate="deactivate && python --version"
 alias myip="curl ifconfig.co"
 alias hostsvi="sudo vi /etc/hosts"
 alias sha256.check="shasum -a 256"
-alias python.server="python -m SimpleHTTPServer"
+alias python.httpserver="python -m SimpleHTTPServer"
+alias php.httpserver="php -S 127.0.0.1:"
+alias mysql.local.import="mysql -h127.0.0.1 -uroot -p\"123456"\"
 
 # Softwares
 alias composerCn="echo 'composer config repo.packagist composer https://packagist.phpcomposer.com' | pbcopy"
